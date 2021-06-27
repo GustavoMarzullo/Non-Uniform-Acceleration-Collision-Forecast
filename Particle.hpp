@@ -1,4 +1,4 @@
-//this archive defines the classes and structures to describe the motion and positon of a particle at determined time
+//this archive defines the classes and structures to describe the motion and positon of a particle at a determined time
 
 #pragma once 
 
@@ -41,7 +41,7 @@ class particle{
 private:
     position s0;         //initial position
     velocity v0;         //initial velocity
-    acceleration a;       //acceleration
+    acceleration a;      //acceleration
     double time;         //actual time (zero by default)
     position s;          //actual position   
     velocity v;          //actual velocity
