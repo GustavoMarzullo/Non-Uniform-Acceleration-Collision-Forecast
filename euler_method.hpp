@@ -8,7 +8,7 @@ typedef std::vector<double> vecdouble;
 
 double solve(double(*a)(double x),double x0, double v0, double t,double t0=0.0, double delta=0.001){ 
     /*
-    Solves d²x/dt²=a(x) for x with initial position x0 and initial velocity v0
+    Solves d²x/dt²=a(t) with initial position x0 and initial velocity v0
     */
     double T=t0,x1=x0,v1=v0,x2,v2;
     while(T<t){
@@ -23,7 +23,7 @@ double solve(double(*a)(double x),double x0, double v0, double t,double t0=0.0, 
 
 vecdouble solve1(double(*a)(double t),double x0, double v0, double t,double t0, double delta_t=1e-6){ 
     /*
-    Solves d²x/dt²=a(t) for x with initial position x0, initial velocity v0 and initial time t0
+    Solves d²x/dt²=a(t) with initial position x0, initial velocity v0 and initial time t0
     */
     static vecdouble array(2); //this array doesn't need to be created thousands of times throughout the loop of RunTest
     double x1=x0,v1=v0,x2,v2;   
