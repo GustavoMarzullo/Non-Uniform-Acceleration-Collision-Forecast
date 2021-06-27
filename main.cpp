@@ -55,7 +55,7 @@ void testcollision(){
 
     cout<<"\nSecond test"<<endl;
     cout<<"Two particles are running along the x-axis."<<endl;
-    cout<<"P5(0,0) at 5m/s and accelerating at 3 m/s² is running after P6(15,0) at 10m/s and accelerating at 1 m/s²\n."<<endl<<endl;
+    cout<<"P5(0,0) at 5m/s and accelerating at 3 m/s² is running after P6(15,0) at 10m/s and accelerating at 1 m/s².\n"<<endl<<endl;
     //defining the particles
     position pos5(0,0),pos6(15,0);
     velocity vel5(5,0),vel6(10,0);
@@ -69,7 +69,7 @@ void testcollision(){
     cout<<"\n----------------------------------------------------------------------------"<<endl;
 
     cout<<"\nThird test"<<endl;
-    cout<<"P7(1,1) is with velocity (2,2)m/s and acceleration (1,1)m/s² and P8 stands still at (10,10)."<<endl;
+    cout<<"P7(1,1) is with velocity (2,2)m/s and acceleration (1,1)m/s² and P8 stands still at (10,10).\n"<<endl;
     //defining the particles
     position pos7(1,1),pos8(10,10);
     velocity vel7(2,2),vel8(0,0);
@@ -83,5 +83,6 @@ void testcollision(){
 
 int main(){
     testcollision();
+    system("pause");
     return 0;
 }
