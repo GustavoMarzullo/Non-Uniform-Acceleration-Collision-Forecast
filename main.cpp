@@ -83,6 +83,5 @@ void testcollision(){
 
 int main(){
     testcollision();
-    system("pause");
     return 0;
 }
