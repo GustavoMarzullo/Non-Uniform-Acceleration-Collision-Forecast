@@ -29,7 +29,7 @@ void RunTest(particle P1, particle P2, double duration, double d, double start_t
     The test is ran by deltax intervals of time
     */
    double actual_time = start_time; //just an alias
-   static velocity v1=P1.actual_vel(), v2=P2.actual_vel();
+   velocity v1=P1.actual_vel(), v2=P2.actual_vel();
    double abs_1,abs_2,v_max,delta_t;
    bool collided=false;
    while(actual_time<=duration){
