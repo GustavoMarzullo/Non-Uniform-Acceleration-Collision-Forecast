@@ -3,7 +3,7 @@
 #pragma once
 
 #include "Particle.hpp"
-#include <math.h>
+#include <cmath>
 #include <iostream>
 
 using std::cout; using std::endl;
@@ -19,7 +19,7 @@ bool collision(particle P1, particle P2, double d){
    static position pos_p1, pos_p2; //holds the position of P1 and P2 at instant t
    pos_p1=P1.actual_pos();
    pos_p2=P2.actual_pos();
-   distance = pow(pow(pos_p2.x-pos_p1.x,2)+pow(pos_p2.y-pos_p1.y,2),0.5); //Pythagoras' theorem
+   distance = sqrt(pow(pos_p2.x-pos_p1.x,2)+pow(pos_p2.y-pos_p1.y,2)); //Pythagoras' theorem
    return (distance<d); //if distance<d so the particles have collided 
 }
 
@@ -30,10 +30,13 @@ void RunTest(particle P1, particle P2, double duration, double d, double start_t
     */
    double actual_time = start_time; //just an alias
    static velocity v1=P1.actual_vel(), v2=P2.actual_vel();
-   double v_max = max(max(abs(v1.x),abs(v2.x)),max(abs(v1.y),abs(v2.y))); //getting the max absolute velocity
-   double delta_t=d/(10.0*v_max); //the delta_t is one tenth of the time that the fastest object passes the hitbox
+   double abs_1,abs_2,v_max,delta_t;
    bool collided=false;
    while(actual_time<=duration){
+       abs_1=sqrt(v1.x*v1.x+v1.y*v1.y);
+       abs_2=sqrt(v2.x*v2.x+v2.y*v2.y);
+       v_max = max(abs_1,abs_2); //getting the max absolute velocity
+       delta_t=d/(2.0*v_max); //the delta_t is half of the time that the fastest object passes the hitbox
        P1.updatepos(actual_time); 
        P2.updatepos(actual_time);
        if(collision(P1,P2,d)){
